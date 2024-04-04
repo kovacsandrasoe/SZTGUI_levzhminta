@@ -7,6 +7,20 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox Grid.Column="0">
+            
+        </ListBox>
+        <StackPanel Grid.Column="1">
+            <Button Margin="10" Content="Kosárba" />
+            <Button Margin="10" Content="Törlés" />
+        </StackPanel>
+        <ListBox Grid.Column="2">
 
+        </ListBox>
     </Grid>
 </Window>
