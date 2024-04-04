@@ -16,9 +16,12 @@ namespace SZTGUI_levzhminta
     /// </summary>
     public partial class MainWindow : Window
     {
+        FoodViewModel vm;
         public MainWindow()
         {
             InitializeComponent();
+            vm = new FoodViewModel();
+            this.DataContext = vm;
         }
     }
 }
