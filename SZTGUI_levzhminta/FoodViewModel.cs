@@ -24,7 +24,7 @@ namespace SZTGUI_levzhminta
                 new Food("burgonya", 1500),
             };
 
-            Basket = new ObservableCollection<Food>()
+            Basket = new ObservableCollection<Food>();
         }
     }
 }
