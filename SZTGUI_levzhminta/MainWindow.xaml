@@ -6,6 +6,9 @@
         xmlns:local="clr-namespace:SZTGUI_levzhminta"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <local:PriceToColorConverter x:Key="colorconvert" />
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="3*"/>
@@ -13,14 +16,28 @@
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
         <ListBox Grid.Column="0" ItemsSource="{Binding Foods}" SelectedItem="{Binding SelectedFood}">
-            
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="{Binding Name}" />
+                        <Label Content="{Binding Price}" ContentStringFormat=" {0} Ft" Foreground="{Binding Price, Converter={StaticResource colorconvert}}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
         </ListBox>
         <StackPanel Grid.Column="1">
             <Button Margin="10" Content="Kosárba" Command="{Binding AddCommand}" />
             <Button Margin="10" Content="Törlés" Command="{Binding DeleteCommand}"/>
         </StackPanel>
         <ListBox Grid.Column="2" ItemsSource="{Binding Basket}" SelectedItem="{Binding SelectedBasket}">
-
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="{Binding Name}" />
+                        <Label Content="{Binding Price}" ContentStringFormat=" {0} Ft" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
         </ListBox>
     </Grid>
 </Window>
