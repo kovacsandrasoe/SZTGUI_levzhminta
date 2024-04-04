@@ -29,6 +29,7 @@
             <Label Margin="10" Content="{Binding SumPrice}" ContentStringFormat=" {0} Ft" />
             <Button Margin="10" Content="Kosárba" Command="{Binding AddCommand}" />
             <Button Margin="10" Content="Törlés" Command="{Binding DeleteCommand}"/>
+            <Button Margin="10" Content="Export" Command="{Binding ExportCommand}"/>
         </StackPanel>
         <ListBox Grid.Column="2" ItemsSource="{Binding Basket}" SelectedItem="{Binding SelectedBasket}">
             <ListBox.ItemTemplate>

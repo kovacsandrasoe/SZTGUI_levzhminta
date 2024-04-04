@@ -1,9 +1,11 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -51,6 +53,8 @@ namespace SZTGUI_levzhminta
         public ICommand AddCommand { get; set; }
 
         public ICommand DeleteCommand { get; set; }
+
+        public ICommand ExportCommand { get; set; }
         public int SumPrice
         {
             get
@@ -84,6 +88,12 @@ namespace SZTGUI_levzhminta
                 Basket.Remove(SelectedBasket);
                 OnPropertyChanged(nameof(SumPrice));
             }, () => SelectedBasket != null);
+
+            ExportCommand = new RelayCommand(() =>
+            {
+                string jsonText = JsonConvert.SerializeObject(Basket, Formatting.Indented);
+                File.WriteAllText("basket.json", jsonText);
+            });
         }
     }
 }
