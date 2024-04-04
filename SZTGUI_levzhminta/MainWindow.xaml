@@ -12,14 +12,14 @@
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
-        <ListBox Grid.Column="0" ItemsSource="{Binding Foods}">
+        <ListBox Grid.Column="0" ItemsSource="{Binding Foods}" SelectedItem="{Binding SelectedFood}">
             
         </ListBox>
         <StackPanel Grid.Column="1">
-            <Button Margin="10" Content="Kosárba" />
-            <Button Margin="10" Content="Törlés" />
+            <Button Margin="10" Content="Kosárba" Command="{Binding AddCommand}" />
+            <Button Margin="10" Content="Törlés" Command="{Binding DeleteCommand}"/>
         </StackPanel>
-        <ListBox Grid.Column="2" ItemsSource="{Binding Basket}">
+        <ListBox Grid.Column="2" ItemsSource="{Binding Basket}" SelectedItem="{Binding SelectedBasket}">
 
         </ListBox>
     </Grid>
