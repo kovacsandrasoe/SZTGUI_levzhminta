@@ -26,6 +26,7 @@
             </ListBox.ItemTemplate>
         </ListBox>
         <StackPanel Grid.Column="1">
+            <Label Margin="10" Content="{Binding SumPrice}" ContentStringFormat=" {0} Ft" />
             <Button Margin="10" Content="Kosárba" Command="{Binding AddCommand}" />
             <Button Margin="10" Content="Törlés" Command="{Binding DeleteCommand}"/>
         </StackPanel>

@@ -51,6 +51,14 @@ namespace SZTGUI_levzhminta
         public ICommand AddCommand { get; set; }
 
         public ICommand DeleteCommand { get; set; }
+        public int SumPrice
+        {
+            get
+            {
+                return Basket.Sum(x => x.Price);
+            }
+        }
+
 
         public FoodViewModel()
         {
@@ -68,11 +76,13 @@ namespace SZTGUI_levzhminta
             AddCommand = new RelayCommand(() =>
             {
                 Basket.Add(SelectedFood.GetCopy());
+                OnPropertyChanged(nameof(SumPrice));
             }, () => SelectedFood != null);
 
             DeleteCommand = new RelayCommand(() =>
             {
                 Basket.Remove(SelectedBasket);
+                OnPropertyChanged(nameof(SumPrice));
             }, () => SelectedBasket != null);
         }
     }
